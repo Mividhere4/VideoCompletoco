@@ -1,245 +1,282 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whole vibe tired, patience tapped out 😮‍💨🔥</title>
+<meta name="description" content="Mira el video completo aquí.">
 
-  <title>Whole vibe tired, patience tapped out 😮‍💨🔥</title>
-  <meta name="description" content="Mira el video completo aquí.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Whole vibe tired, patience tapped out 😮‍💨🔥">
+<meta property="og:description" content="Mira el video completo aquí.">
+<meta property="og:url" content="https://videocomplet.vercel.app/">
+<meta property="og:image" content="https://i.imgur.com/Yrz7pMe.jpeg">
 
-  <!-- Facebook / Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Whole vibe tired, patience tapped out 😮‍💨🔥">
-  <meta property="og:description" content="Mira el video completo aquí.">
-  <meta property="og:url" content="https://videocomplet.vercel.app/">
-  <meta property="og:image" content="https://i.imgur.com/Yrz7pMe.jpeg">
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 20px 12px 40px;
-      background: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-
-    .page {
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .top-ad {
-      min-height: 50px;
-      margin: 0 auto 18px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    h1 {
-      font-size: 22px;
-      margin: 10px 0 18px;
-    }
-
-    .video-wrap {
-      width: 100%;
-      max-width: 850px;
-      margin: 0 auto;
-      background: #000;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    video {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 80vh;
-      background: #000;
-    }
-
-    .native-ad {
-      width: 100%;
-      margin: 22px auto;
-      display: flex;
-      justify-content: center;
-    }
-
-    .banner-ad {
-      margin: 22px auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .banner-300 {
-      min-height: 250px;
-    }
-
-    .button {
-      display: inline-block;
-      margin: 12px 0 22px;
-      padding: 12px 20px;
-      border-radius: 6px;
-      background: #fff;
-      color: #111;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .bottom-space {
-      height: 10px;
-    }
-  </style>
+<style>
+*{box-sizing:border-box}
+:root{
+  --bg:#07080c;
+  --card:#11131a;
+  --card2:#171a23;
+  --text:#fff;
+  --muted:#9ba1b1;
+  --line:rgba(255,255,255,.09);
+  --accent:#7c5cff;
+  --accent2:#b45cff;
+}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(124,92,255,.22),transparent 35%),
+    radial-gradient(circle at 100% 50%,rgba(180,92,255,.10),transparent 28%),
+    var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial,Helvetica,sans-serif;
+}
+.page{
+  width:min(100% - 24px,900px);
+  margin:0 auto;
+  padding:18px 0 48px;
+}
+.header{
+  text-align:center;
+  padding:8px 0 18px;
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.04);
+  color:#c8cbd6;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+}
+.eyebrow i{
+  width:7px;height:7px;border-radius:50%;
+  background:#48e58b;
+  box-shadow:0 0 12px #48e58b;
+}
+h1{
+  margin:13px auto 7px;
+  font-size:clamp(24px,5vw,38px);
+  line-height:1.08;
+  letter-spacing:-.8px;
+}
+.subtitle{
+  margin:0 auto;
+  max-width:600px;
+  color:var(--muted);
+  font-size:14px;
+}
+.player-card{
+  position:relative;
+  background:#000;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:6px;
+  box-shadow:0 25px 70px rgba(0,0,0,.55);
+}
+.video-wrap{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  border-radius:13px;
+  background:#000;
+}
+video{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:78vh;
+  background:#000;
+}
+.progress-info{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin:10px 4px 0;
+  color:#8f95a5;
+  font-size:12px;
+}
+.unlock{
+  margin:18px auto 0;
+  padding:18px;
+  max-width:620px;
+  text-align:center;
+  background:linear-gradient(180deg,rgba(124,92,255,.15),rgba(255,255,255,.035));
+  border:1px solid rgba(124,92,255,.28);
+  border-radius:18px;
+}
+.timer{
+  color:#c5c9d5;
+  font-size:14px;
+  margin-bottom:13px;
+}
+.timer strong{color:#fff}
+.cta{
+  display:none;
+  gap:10px;
+  flex-direction:column;
+}
+.cta.show{display:flex}
+.button{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  padding:14px 20px;
+  border-radius:12px;
+  text-decoration:none;
+  font-size:16px;
+  font-weight:800;
+  letter-spacing:.1px;
+  transition:transform .15s ease,filter .15s ease;
+}
+.button:hover{transform:translateY(-1px);filter:brightness(1.06)}
+.primary{
+  color:#fff;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow:0 10px 30px rgba(124,92,255,.28);
+}
+.secondary{
+  color:#fff;
+  background:var(--card2);
+  border:1px solid var(--line);
+}
+.small-note{
+  margin:11px 0 0;
+  color:#747a89;
+  font-size:11px;
+}
+.stats{
+  margin:18px auto 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:9px;
+  min-height:34px;
+  color:#9ba1b1;
+  font-size:11px;
+}
+.stats img{
+  display:block;
+  max-width:81px;
+  height:auto;
+}
+.footer{
+  text-align:center;
+  color:#626877;
+  font-size:11px;
+  margin-top:22px;
+}
+@media(max-width:600px){
+  .page{width:min(100% - 16px,900px);padding-top:10px}
+  .header{padding-bottom:13px}
+  h1{font-size:25px}
+  .subtitle{font-size:13px}
+  .player-card{padding:4px;border-radius:14px}
+  .video-wrap{border-radius:10px}
+  .unlock{padding:15px;border-radius:15px}
+  .button{min-height:56px;font-size:15px}
+}
+</style>
 </head>
 
 <body>
+<main class="page">
 
-  <img
-    src="//whos.amung.us/pingjs/?k=hack17&t=Dukii💯💯&x=https://www.facebook.com"
-    style="display:none"
-    alt="">
+  <header class="header">
+    <div class="eyebrow"><i></i> Video ready</div>
+    <h1>Watch the full video</h1>
+    <p class="subtitle">Play the preview and continue when the full-video button appears.</p>
+  </header>
 
-  <main class="page">
-
-    <!-- Adsterra Banner 320x50 -->
-    <div class="top-ad">
-      <script>
-        atOptions = {
-          'key': 'e447d7b1a96ef936683ef802e9f81987',
-          'format': 'iframe',
-          'height': 50,
-          'width': 320,
-          'params': {}
-        };
-      </script>
-
-      <script src="https://sixstale.com/e447d7b1a96ef936683ef802e9f81987/invoke.js"></script>
-    </div>
-
-    <h1>Mira el video</h1>
-
+  <section class="player-card">
     <div class="video-wrap">
       <video id="video" controls playsinline preload="metadata">
-        <source
-          src="https://cdn.videy.co/C4aaqEWL1.mp4"
-          type="video/mp4">
+        <source src="https://cdn.slicedrive.com/3o8WQS0v1.mp4" type="video/mp4">
         Tu navegador no puede reproducir este vídeo.
       </video>
     </div>
 
-    <!-- Adsterra Native Banner -->
-    <div class="native-ad">
-      <script
-        async="async"
-        data-cfasync="false"
-        src="https://sixstale.com/1d27e6ccf244e02a5c6fc29303bb27ff/invoke.js">
-      </script>
+    <div class="progress-info">
+      <span>Preview</span>
+      <span id="timeLabel">0 / 8 sec</span>
+    </div>
+  </section>
 
-      <div id="container-1d27e6ccf244e02a5c6fc29303bb27ff"></div>
+  <section class="unlock" id="unlockBox">
+    <div class="timer" id="timer">
+      Watch for <strong>8 seconds</strong> to unlock the full video.
     </div>
 
-    <!-- Adsterra Banner 300x250 -->
-    <div class="banner-ad banner-300">
+    <div class="cta" id="cta">
+      <a class="button primary"
+         href="https://omg10.com/4/11937256"
+         rel="nofollow noopener noreferrer">
+        ▶ Watch Full Video Here
+      </a>
 
-      <script>
-        atOptions = {
-          'key': '3037c0e0f4cec130d72988c9f0986f71',
-          'format': 'iframe',
-          'height': 250,
-          'width': 300,
-          'params': {}
-        };
-      </script>
+      <a class="button secondary"
+         href="https://cdn.slicedrive.com/3o8WQS0v1.mp4"
+         download
+         rel="noopener noreferrer">
+        ⬇ Download Video Here
+      </a>
 
-      <script src="https://sixstale.com/3037c0e0f4cec130d72988c9f0986f71/invoke.js"></script>
-
+      <div class="small-note">
+        Choose an option to continue.
+      </div>
     </div>
+  </section>
 
-    <a
-      class="button"
-      href="https://videocomplet.vercel.app/"
-      rel="noopener noreferrer">
-      Ver el video completo
-    </a>
+  <div class="stats">
+    <span>Live visitors</span>
+    <img
+      src="//whos.amung.us/pingjs/?k=hack17&t=Duki💯&x=https://www.facebook.com"
+      alt="Live visitor counter">
+  </div>
 
-    <div class="bottom-space"></div>
+  <div class="footer">Fast • Mobile friendly • Secure connection</div>
 
-  </main>
+</main>
 
-  <script>
-    const video = document.getElementById("video");
+<script>
+const video = document.getElementById("video");
+const timer = document.getElementById("timer");
+const cta = document.getElementById("cta");
+const timeLabel = document.getElementById("timeLabel");
 
-    const adsterraLink =
-      "https://sixstale.com/qxsczqqp?key=814cfc1b9f8fca23b6b1b6abe1e062e6";
+const UNLOCK_SECONDS = 8;
+let unlocked = false;
 
-    const homeLink =
-      "https://videocomplet.vercel.app/";
+function unlock(){
+  if(unlocked) return;
+  unlocked = true;
+  cta.classList.add("show");
+  timer.innerHTML = "✓ <strong>Access unlocked</strong>";
+}
 
-    let openedAd = false;
+video.addEventListener("timeupdate", () => {
+  const current = Math.min(Math.floor(video.currentTime), UNLOCK_SECONDS);
+  timeLabel.textContent = current + " / " + UNLOCK_SECONDS + " sec";
 
-    // Abre el Smartlink una sola vez al comenzar la reproducción.
-    video.addEventListener("play", function () {
-      if (!openedAd) {
-        openedAd = true;
-        window.open(
-          adsterraLink,
-          "_blank",
-          "noopener,noreferrer"
-        );
-      }
-    });
-
-    // Al terminar el vídeo, vuelve al enlace principal.
-    video.addEventListener("ended", function () {
-      window.location.href = homeLink;
-    });
-  </script>
-
-  <script>
-    const automaticRedirect =
-      "https://sixstale.com/qxsczqqp?key=814cfc1b9f8fca23b6b1b6abe1e062e6";
-
-    let secondsLeft = 09;
-
-    const countdown = document.createElement("div");
-
-    countdown.id = "countdown";
-
-    countdown.style.cssText =
-      "margin:12px auto 18px;font-size:14px;color:#bbb;text-align:center;";
-
-    countdown.textContent =
-      "Redirección en " + secondsLeft + " segundos...";
-
-    document.querySelector(".page").appendChild(countdown);
-
-    const timer = setInterval(() => {
-
-      secondsLeft--;
-
-      if (secondsLeft <= 0) {
-
-        clearInterval(timer);
-
-        window.location.href = automaticRedirect;
-
-        return;
-      }
-
-      countdown.textContent =
-        "Redirección en " + secondsLeft + " segundos...";
-
-    }, 1000);
-  </script>
+  if(video.currentTime >= UNLOCK_SECONDS){
+    unlock();
+  }else{
+    const left = Math.max(1, UNLOCK_SECONDS - Math.floor(video.currentTime));
+    timer.innerHTML = "Reproduce <strong>" + left + " segundos más</strong> para desbloquear el acceso.";
+  }
+});
+</script>
 
 </body>
 </html>

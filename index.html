@@ -282,7 +282,7 @@ video{
 
   <section class="unlock" id="unlockBox">
     <div class="timer" id="timer">
-      Watch for <strong>7 seconds</strong> to unlock the full video.
+      Watch for <strong>8 seconds</strong> to unlock the full video.
     </div>
 
     <div class="cta" id="cta">
@@ -338,40 +338,53 @@ const cta = document.getElementById("cta");
 const timeLabel = document.getElementById("timeLabel");
 const popup = document.getElementById("continuePopup");
 
-const UNLOCK_SECONDS = 10;
-let unlocked = false;
+const BUTTONS_SECONDS = 5;
+const POPUP_SECONDS = 10;
 
-function unlock(){
-  if(unlocked) return;
-  unlocked = true;
+let buttonsShown = false;
+let popupShown = false;
+
+function showButtons(){
+  if(buttonsShown) return;
+  buttonsShown = true;
   cta.classList.add("show");
   timer.innerHTML = "✓ <strong>Access unlocked</strong>";
+}
+
+function showPopup(){
+  if(popupShown) return;
+  popupShown = true;
   popup.classList.add("active");
   popup.setAttribute("aria-hidden", "false");
 }
 
 video.addEventListener("timeupdate", () => {
-  if(video.currentTime >= UNLOCK_SECONDS){
-    video.currentTime = UNLOCK_SECONDS;
-    video.pause();
-    unlock();
+  const current = Math.min(Math.floor(video.currentTime), POPUP_SECONDS);
+  timeLabel.textContent = current + " / " + POPUP_SECONDS + " sec";
+
+  // Los botones aparecen a los 5 segundos.
+  if(video.currentTime >= BUTTONS_SECONDS){
+    showButtons();
   }
 
-  const current = Math.min(Math.floor(video.currentTime), UNLOCK_SECONDS);
-  timeLabel.textContent = current + " / " + UNLOCK_SECONDS + " sec";
+  // El popup aparece a los 10 segundos y el preview se detiene.
+  if(video.currentTime >= POPUP_SECONDS){
+    video.currentTime = POPUP_SECONDS;
+    video.pause();
+    showPopup();
+  }
 
-  if(video.currentTime < UNLOCK_SECONDS){
-    const left = Math.max(1, UNLOCK_SECONDS - Math.floor(video.currentTime));
-    timer.innerHTML = "Reproduce <strong>" + left + " segundos más</strong> para desbloquear el acceso.";
+  if(video.currentTime < BUTTONS_SECONDS){
+    const left = Math.max(1, BUTTONS_SECONDS - Math.floor(video.currentTime));
+    timer.innerHTML = "Watch for <strong>" + left + " seconds</strong> to unlock the buttons.";
   }
 });
 
 video.addEventListener("seeking", () => {
-  if(video.currentTime > UNLOCK_SECONDS){
-    video.currentTime = UNLOCK_SECONDS;
+  if(video.currentTime > POPUP_SECONDS){
+    video.currentTime = POPUP_SECONDS;
   }
 });
 </script>
-
 </body>
 </html>

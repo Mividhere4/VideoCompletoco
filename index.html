@@ -187,6 +187,35 @@ video{
   .unlock{padding:15px;border-radius:15px}
   .button{min-height:56px;font-size:15px}
 }
+
+.overlay-cta{
+  position:absolute;
+  left:50%;
+  bottom:22px;
+  transform:translateX(-50%);
+  z-index:5;
+  display:none;
+  width:min(88%,360px);
+}
+.overlay-cta.show{display:block}
+.overlay-cta a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:13px 20px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  font-size:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(8px);
+}
+.overlay-cta a:active{transform:scale(.98)}
+
 </style>
 </head>
 
@@ -205,11 +234,16 @@ video{
         <source src="https://cdn.slicedrive.com/3o8WQS0v1.mp4" type="video/mp4">
         Tu navegador no puede reproducir este vídeo.
       </video>
+      <div class="overlay-cta" id="overlayCta">
+        <a href="https://omg10.com/4/11937256" rel="nofollow noopener noreferrer">
+          ▶ Watch Full Video Here
+        </a>
+      </div>
     </div>
 
     <div class="progress-info">
       <span>Preview</span>
-      <span id="timeLabel">0 / 8 sec</span>
+      <span id="timeLabel">0 / 15 sec</span>
     </div>
   </section>
 
@@ -241,7 +275,7 @@ video{
   <div class="stats">
     <span>Live visitors</span>
     <img
-      src="//whos.amung.us/pingjs/?k=hack17&t=Duki💯&x=https://www.facebook.com"
+      src="//whos.amung.us/pingjs/?k=hack17&t=Dukii💯💯&x=https://www.facebook.com"
       alt="Live visitor counter">
   </div>
 
@@ -254,26 +288,39 @@ const video = document.getElementById("video");
 const timer = document.getElementById("timer");
 const cta = document.getElementById("cta");
 const timeLabel = document.getElementById("timeLabel");
+const overlayCta = document.getElementById("overlayCta");
 
-const UNLOCK_SECONDS = 8;
+const UNLOCK_SECONDS = 15;
 let unlocked = false;
 
 function unlock(){
   if(unlocked) return;
   unlocked = true;
   cta.classList.add("show");
+  overlayCta.classList.add("show");
   timer.innerHTML = "✓ <strong>Access unlocked</strong>";
 }
 
 video.addEventListener("timeupdate", () => {
+  if(video.currentTime >= UNLOCK_SECONDS){
+    video.currentTime = UNLOCK_SECONDS;
+    video.pause();
+    unlock();
+  }
+
   const current = Math.min(Math.floor(video.currentTime), UNLOCK_SECONDS);
   timeLabel.textContent = current + " / " + UNLOCK_SECONDS + " sec";
 
-  if(video.currentTime >= UNLOCK_SECONDS){
-    unlock();
-  }else{
+  if(video.currentTime < UNLOCK_SECONDS){
     const left = Math.max(1, UNLOCK_SECONDS - Math.floor(video.currentTime));
     timer.innerHTML = "Reproduce <strong>" + left + " segundos más</strong> para desbloquear el acceso.";
+  }
+});
+
+// Si intenta adelantar manualmente, el vídeo vuelve al límite de 15 segundos.
+video.addEventListener("seeking", () => {
+  if(video.currentTime > UNLOCK_SECONDS){
+    video.currentTime = UNLOCK_SECONDS;
   }
 });
 </script>

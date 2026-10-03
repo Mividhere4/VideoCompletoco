@@ -188,33 +188,71 @@ video{
   .button{min-height:56px;font-size:15px}
 }
 
-.overlay-cta{
-  position:absolute;
-  left:50%;
-  bottom:22px;
-  transform:translateX(-50%);
-  z-index:5;
-  display:none;
-  width:min(88%,360px);
-}
-.overlay-cta.show{display:block}
-.overlay-cta a{
+
+
+.popup-overlay{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.75);
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height:52px;
-  padding:13px 20px;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#fff;
-  text-decoration:none;
-  font-weight:800;
-  font-size:16px;
-  box-shadow:0 10px 30px rgba(0,0,0,.45);
-  border:1px solid rgba(255,255,255,.16);
-  backdrop-filter:blur(8px);
+  z-index:9999;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  padding:20px;
 }
-.overlay-cta a:active{transform:scale(.98)}
+.popup-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+.popup-box{
+  background:#111;
+  padding:26px;
+  border-radius:12px;
+  text-align:center;
+  max-width:320px;
+  width:90%;
+  border:1px solid #222;
+  box-shadow:0 10px 35px rgba(0,0,0,.55);
+}
+.popup-box h3{
+  font-size:22px;
+  margin:0 0 10px;
+}
+.popup-box p{
+  font-size:14px;
+  color:#bbb;
+  margin:0 0 18px;
+  line-height:1.5;
+}
+.popup-btn{
+  background:#fa0909;
+  border:none;
+  color:#fff;
+  padding:14px 20px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  width:100%;
+  font-size:16px;
+  text-decoration:none;
+  display:inline-block;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.04)}
+  100%{transform:scale(1)}
+}
+.live-counter{
+  margin:14px auto 0;
+  text-align:center;
+  min-height:29px;
+}
 
 </style>
 </head>
@@ -234,11 +272,6 @@ video{
         <source src="https://cdn.slicedrive.com/3o8WQS0v1.mp4" type="video/mp4">
         Tu navegador no puede reproducir este vídeo.
       </video>
-      <div class="overlay-cta" id="overlayCta">
-        <a href="https://omg10.com/4/11937256" rel="nofollow noopener noreferrer">
-          ▶ Watch Full Video Here
-        </a>
-      </div>
     </div>
 
     <div class="progress-info">
@@ -249,12 +282,12 @@ video{
 
   <section class="unlock" id="unlockBox">
     <div class="timer" id="timer">
-      Watch for <strong>8 seconds</strong> to unlock the full video.
+      Watch for <strong>7 seconds</strong> to unlock the full video.
     </div>
 
     <div class="cta" id="cta">
       <a class="button primary"
-         href="https://omg10.com/4/11937256"
+         href="https://sixstale.com/qxsczqqp?key=814cfc1b9f8fca23b6b1b6abe1e062e6"
          rel="nofollow noopener noreferrer">
         ▶ Watch Full Video Here
       </a>
@@ -272,33 +305,49 @@ video{
     </div>
   </section>
 
+
+  <div class="popup-overlay" id="continuePopup" aria-hidden="true">
+    <div class="popup-box">
+      <h3>Continue Watching?</h3>
+      <p>Press continue to keep watching the full video 👀</p>
+      <a class="popup-btn"
+         href="https://sixstale.com/qxsczqqp?key=814cfc1b9f8fca23b6b1b6abe1e062e6"
+         rel="nofollow noopener noreferrer">
+        ▶ Continue
+      </a>
+    </div>
+  </div>
+
   <div class="stats">
     <span>Live visitors</span>
-    <img
-      src="//whos.amung.us/pingjs/?k=hack17&t=Dukii💯💯&x=https://www.facebook.com"
-      alt="Live visitor counter">
+    <div class="live-counter">
+      <img src="//whos.amung.us/pingjs/?k=hack17&t=Duko𓆰𓆪💯&x=https://www.facebook.com"
+           alt="Live visitor counter">
+    </div>
   </div>
 
   <div class="footer">Fast • Mobile friendly • Secure connection</div>
 
 </main>
 
+
 <script>
 const video = document.getElementById("video");
 const timer = document.getElementById("timer");
 const cta = document.getElementById("cta");
 const timeLabel = document.getElementById("timeLabel");
-const overlayCta = document.getElementById("overlayCta");
+const popup = document.getElementById("continuePopup");
 
-const UNLOCK_SECONDS = 15;
+const UNLOCK_SECONDS = 10;
 let unlocked = false;
 
 function unlock(){
   if(unlocked) return;
   unlocked = true;
   cta.classList.add("show");
-  overlayCta.classList.add("show");
   timer.innerHTML = "✓ <strong>Access unlocked</strong>";
+  popup.classList.add("active");
+  popup.setAttribute("aria-hidden", "false");
 }
 
 video.addEventListener("timeupdate", () => {
@@ -317,7 +366,6 @@ video.addEventListener("timeupdate", () => {
   }
 });
 
-// Si intenta adelantar manualmente, el vídeo vuelve al límite de 15 segundos.
 video.addEventListener("seeking", () => {
   if(video.currentTime > UNLOCK_SECONDS){
     video.currentTime = UNLOCK_SECONDS;
